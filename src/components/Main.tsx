@@ -23,7 +23,7 @@ const Main: React.FC = () => {
 
       <div style={getFieldStyle("age")} className="form-group">
         <label>Age:</label>
-        <input type="number" defaultValue={formData.age || 0} readOnly />
+        <input type="number" defaultValue={formData.age || ""} readOnly />
       </div>
 
       <div style={getFieldStyle("email")} className="form-group">

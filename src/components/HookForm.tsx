@@ -32,7 +32,7 @@ const HookForm: React.FC = () => {
     mode: "onChange",
     defaultValues: {
       name: "",
-      age: 0,
+      age: undefined,
       email: "",
       password: "",
       confirmPassword: "",
