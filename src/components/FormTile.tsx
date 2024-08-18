@@ -1,4 +1,3 @@
-// FormTile.tsx
 import React from "react";
 
 export interface FormTileProps {

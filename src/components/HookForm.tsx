@@ -79,9 +79,6 @@ const HookForm: React.FC = () => {
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
     console.log("controlled file", data);
-    // if (data.files.length > 0) {
-    //   convert2base64(data.files[0]);
-    // }
     const { ...rest } = data;
     Object.entries(rest).forEach(([field, value]) => {
       dispatch(updateField({ field: field as keyof FormData, value }));
