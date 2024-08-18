@@ -12,6 +12,7 @@
     "format:fix": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.9.0",
     "@reduxjs/toolkit": "^2.2.7",
     "@typescript-eslint/eslint-plugin": "^8.1.0",
     "@typescript-eslint/parser": "^8.1.0",
