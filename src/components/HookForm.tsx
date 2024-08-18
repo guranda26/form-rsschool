@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { validationSchema } from "../utlis/validationSchema";
 import { useDispatch } from "react-redux";
 import { updateField } from "../redux/slices/formSlice";
+import "../App.css";
 
 interface FormData {
   name: string;
@@ -91,59 +92,74 @@ const HookForm: React.FC = () => {
   };
 
   return (
-    <div className="container">
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="name">Name:</label>
-        <input id="name" {...register("name")} />
-        {errors.name && <p>{errors.name.message}</p>}
-
-        <label htmlFor="age">Age:</label>
-        <input id="age" type="number" {...register("age")} />
-        {errors.age && <p>{errors.age.message}</p>}
-
-        <label htmlFor="email">Email:</label>
-        <input id="email" type="email" {...register("email")} />
-        {errors.email && <p>{errors.email.message}</p>}
-
-        <label htmlFor="password">Password:</label>
-        <input id="password" type="password" {...register("password")} />
-        {errors.password && <p>{errors.password.message}</p>}
-
-        <label htmlFor="confirmPassword">Confirm Password:</label>
-        <input
-          id="confirmPassword"
-          type="password"
-          {...register("confirmPassword")}
-        />
-        {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
-
-        <label htmlFor="gender">Gender:</label>
-        <select id="gender" {...register("gender")}>
-          <option value="">Select Gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
-        </select>
-        {errors.gender && <p>{errors.gender.message}</p>}
-
-        <label htmlFor="terms">Accept Terms and Conditions:</label>
-        <input id="terms" type="checkbox" {...register("termsAccepted")} />
-        {errors.termsAccepted && <p>{errors.termsAccepted.message}</p>}
-
-        <label htmlFor="picture">Upload Picture:</label>
-        <input
-          id="picture"
-          type="file"
-          {...register("picture")}
-          onChange={handleFileChange}
-        />
-        {errors.picture && <p>{errors.picture.message}</p>}
-        {image ? <img src={image} alt="Uploaded" width="450" /> : null}
-
-        <label htmlFor="country">Country:</label>
-        <input id="country" type="text" {...register("country")} />
-        {errors.country && <p>{errors.country.message}</p>}
-
+    <div className="form-container">
+      <h2 className="form-heading">Form 2</h2>
+      <form onSubmit={handleSubmit(onSubmit)} className="form-container">
+        <div className="form-group">
+          <label htmlFor="name">Name:</label>
+          <input id="name" {...register("name")} />
+          {errors.name && <p>{errors.name.message}</p>}
+        </div>
+        <div className="form-group">
+          <label htmlFor="age">Age:</label>
+          <input id="age" type="number" {...register("age")} />
+          {errors.age && <p>{errors.age.message}</p>}
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email:</label>
+          <input id="email" type="email" {...register("email")} />
+          {errors.email && <p>{errors.email.message}</p>}
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password:</label>
+          <input id="password" type="password" {...register("password")} />
+          {errors.password && <p>{errors.password.message}</p>}
+        </div>
+        <div className="form-group">
+          <label htmlFor="confirmPassword">Confirm Password:</label>
+          <input
+            id="confirmPassword"
+            type="password"
+            {...register("confirmPassword")}
+          />
+          {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
+        </div>
+        <div className="form-group">
+          <label htmlFor="gender">Gender:</label>
+          <select id="gender" {...register("gender")}>
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+          {errors.gender && <p>{errors.gender.message}</p>}
+        </div>
+        <div className="form-group">
+          <label htmlFor="picture">Upload Picture:</label>
+          <input
+            id="picture"
+            type="file"
+            {...register("picture")}
+            onChange={handleFileChange}
+          />
+          {errors.picture && <p>{errors.picture.message}</p>}
+          {image ? <img src={image} alt="Uploaded" width="450" /> : null}
+        </div>
+        <div className="form-group">
+          <label htmlFor="country">Country:</label>
+          <input id="country" type="text" {...register("country")} />
+          {errors.country && <p>{errors.country.message}</p>}
+        </div>
+        <div className="form-group">
+          <label htmlFor="terms">Accept Terms and Conditions:</label>
+          <input
+            id="terms"
+            type="checkbox"
+            className="checkbox"
+            {...register("termsAccepted")}
+          />
+          {errors.termsAccepted && <p>{errors.termsAccepted.message}</p>}
+        </div>
         <button type="submit" disabled={!isValid}>
           Submit
         </button>

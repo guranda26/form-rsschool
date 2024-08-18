@@ -4,6 +4,7 @@ import { setUncontrolledFormData } from "../redux/slices/formSlice";
 import * as Yup from "yup";
 import { validationSchema } from "../utlis/validationSchema";
 import { useNavigate } from "react-router-dom";
+import "../index.css";
 
 const convertToBase64 = (file: File): Promise<string> => {
   return new Promise((resolve, reject) => {
@@ -72,67 +73,70 @@ const UncontrolledForm: React.FC = () => {
   };
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="name">Name:</label>
-        <input type="text" id="name" name="name" />
-      </div>
-
-      <div>
-        <label htmlFor="age">Age:</label>
-        <input type="number" id="age" name="age" />
-      </div>
-
-      <div>
-        <label htmlFor="email">Email:</label>
-        <input type="email" id="email" name="email" />
-      </div>
-
-      <div>
-        <label htmlFor="password">Password:</label>
-        <input type="password" id="password" name="password" />
-      </div>
-
-      <div>
-        <label htmlFor="confirmPassword">Confirm Password:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" />
-      </div>
-
-      <div>
-        <label htmlFor="gender">Gender:</label>
-        <select id="gender" name="gender">
-          <option value="">Select Gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
-        </select>
-      </div>
-
-      <div>
-        <label htmlFor="picture">Upload Picture:</label>
-        <input type="file" id="picture" name="picture" />
-      </div>
-
-      <div>
-        <label htmlFor="country">Country:</label>
-        <input type="text" id="country" name="country" />
-      </div>
-
-      <div>
-        <label htmlFor="terms">Accept Terms and Conditions:</label>
-        <input type="checkbox" id="terms" name="termsAccepted" />
-      </div>
-
-      <button type="submit">Submit</button>
-
-      {errors.length > 0 && (
-        <div>
-          {errors.map((error, index) => (
-            <p key={index}>{error}</p>
-          ))}
+    <div className="form-container">
+      <h2 className="form-heading">Form 1</h2>
+      <form ref={formRef} onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="name">Name:</label>
+          <input type="text" id="name" name="name" />
         </div>
-      )}
-    </form>
+
+        <div className="form-group">
+          <label htmlFor="age">Age:</label>
+          <input type="number" id="age" name="age" />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="email">Email:</label>
+          <input type="email" id="email" name="email" />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="password">Password:</label>
+          <input type="password" id="password" name="password" />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="confirmPassword">Confirm Password:</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="gender">Gender:</label>
+          <select id="gender" name="gender">
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="picture">Upload Picture:</label>
+          <input type="file" id="picture" name="picture" />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="country">Country:</label>
+          <input type="text" id="country" name="country" />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="terms">Accept Terms and Conditions:</label>
+          <input type="checkbox" id="terms" name="termsAccepted" />
+        </div>
+
+        <button type="submit">Submit</button>
+
+        {errors.length > 0 && (
+          <div>
+            {errors.map((error, index) => (
+              <p key={index}>{error}</p>
+            ))}
+          </div>
+        )}
+      </form>
+    </div>
   );
 };
 

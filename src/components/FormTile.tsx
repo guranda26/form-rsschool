@@ -9,8 +9,8 @@ export interface FormTileProps {
     confirmPassword?: string;
     gender?: string;
     picture?: string;
-    termsAccepted?: boolean;
     country?: string;
+    termsAccepted?: boolean;
   };
 }
 
@@ -40,8 +40,8 @@ const FormTile: React.FC<FormTileProps> = ({ formData }) => {
       <p>Confirm Password: {confirmPassword || "N/A"}</p>
       <p>Gender: {gender || "N/A"}</p>
       <p>Picture: {picture || "N/A"}</p>
-      <p>Terms Accepted: {termsAccepted ? "Yes" : "No"}</p>
       <p>Country: {country || "N/A"}</p>
+      <p>Terms Accepted: {termsAccepted ? "Yes" : "No"}</p>
     </div>
   );
 };

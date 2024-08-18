@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "../redux/store";
+import "./Main.css";
 
 const Main: React.FC = () => {
   const formData = useSelector((state: RootState) => state.form);
@@ -13,25 +14,24 @@ const Main: React.FC = () => {
   };
 
   return (
-    <section>
-      <h1>Main Route</h1>
-      <h2>Form Data</h2>
-      <div style={getFieldStyle("name")}>
+    <section className="form-container">
+      <h1>Fill Form Data</h1>
+      <div style={getFieldStyle("name")} className="form-group">
         <label>Name:</label>
         <input type="text" defaultValue={formData.name || ""} readOnly />
       </div>
 
-      <div style={getFieldStyle("age")}>
+      <div style={getFieldStyle("age")} className="form-group">
         <label>Age:</label>
         <input type="number" defaultValue={formData.age || 0} readOnly />
       </div>
 
-      <div style={getFieldStyle("email")}>
+      <div style={getFieldStyle("email")} className="form-group">
         <label>Email:</label>
         <input type="email" defaultValue={formData.email || ""} readOnly />
       </div>
 
-      <div style={getFieldStyle("picture")}>
+      <div style={getFieldStyle("picture")} className="form-group">
         <label>Picture:</label>
         {formData.picture ? (
           <img
@@ -44,7 +44,7 @@ const Main: React.FC = () => {
         )}
       </div>
 
-      <div style={getFieldStyle("country")}>
+      <div style={getFieldStyle("country")} className="form-group">
         <label>Country:</label>
         <input type="text" defaultValue={formData.country || ""} readOnly />
       </div>
